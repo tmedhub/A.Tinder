@@ -4,7 +4,7 @@
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
 <title>Tinder Chaos</title>
 
@@ -21,10 +21,10 @@
 
 body{
     overflow:hidden;
-    background:#000;
+    background:black;
 }
 
-/* PHONE */
+/* APP */
 
 .phone{
     width:100vw;
@@ -44,7 +44,7 @@ body{
     left:0;
 }
 
-/* PASSWORD SCREEN */
+/* PASSWORD */
 
 #passwordScreen{
     background:black;
@@ -58,18 +58,8 @@ body{
 }
 
 .lock{
-    font-size:70px;
+    font-size:74px;
     margin-bottom:20px;
-}
-
-#passwordScreen h1{
-    font-size:32px;
-    margin-bottom:10px;
-}
-
-#passwordScreen p{
-    opacity:0.7;
-    margin-bottom:30px;
 }
 
 .password-box{
@@ -86,6 +76,7 @@ body{
     border-radius:18px;
     font-size:18px;
     outline:none;
+    text-align:center;
 }
 
 .password-box button{
@@ -105,7 +96,7 @@ body{
     transition:0.3s;
 }
 
-/* SPLASH SCREEN */
+/* SCREEN 1 */
 
 #screen1{
     background:linear-gradient(180deg,#ff5864,#ff2d7a);
@@ -121,30 +112,30 @@ body{
 }
 
 .tinder-logo{
-    font-size:90px;
+    font-size:92px;
     margin-bottom:12px;
     filter:brightness(0) invert(1);
 }
 
 #screen1 h1{
-    font-size:68px;
+    font-size:72px;
     font-weight:700;
 }
 
 .intro-text{
-    margin-top:20px;
+    margin-top:24px;
     text-align:center;
     font-size:22px;
     line-height:1.5;
-    opacity:0.92;
-    width:80%;
-    max-width:340px;
+    opacity:0;
+    transition:0.4s;
 }
 
-#screen1 p{
-    margin-top:24px;
-    opacity:0.8;
-    font-size:18px;
+.tap{
+    margin-top:28px;
+    opacity:0;
+    transition:0.4s;
+    font-size:17px;
 }
 
 /* MAIN APP */
@@ -153,10 +144,10 @@ body{
     display:none;
 }
 
-/* TOP BAR */
+/* TOP */
 
 .top{
-    height:85px;
+    height:72px;
     display:flex;
     justify-content:space-between;
     align-items:center;
@@ -166,25 +157,26 @@ body{
 
 .logo{
     color:#ff4458;
-    font-size:34px;
+    font-size:32px;
     font-weight:700;
 }
 
 .top-icons{
     display:flex;
-    gap:16px;
-    font-size:24px;
+    gap:14px;
+    font-size:22px;
 }
 
 /* CARD AREA */
 
 .card-area{
     width:100%;
-    height:calc(100vh - 170px);
+    height:calc(100vh - 145px);
     position:relative;
     display:flex;
     justify-content:center;
     align-items:center;
+    padding-bottom:10px;
 }
 
 /* CARDS */
@@ -192,8 +184,8 @@ body{
 .card{
     width:86%;
     max-width:390px;
-    height:66vh;
-    border-radius:34px;
+    height:60vh;
+    border-radius:32px;
     overflow:hidden;
     position:absolute;
     background:black;
@@ -204,8 +196,6 @@ body{
 
     user-select:none;
 }
-
-/* STACK EFFECT */
 
 .card:nth-child(1){
     z-index:10;
@@ -227,28 +217,28 @@ body{
     object-fit:cover;
 }
 
-/* INFO */
+/* CARD INFO */
 
 .info{
     position:absolute;
     bottom:0;
     width:100%;
-    padding:24px;
+    padding:22px;
     color:white;
 
     background:linear-gradient(
         transparent,
-        rgba(0,0,0,0.94)
+        rgba(0,0,0,0.95)
     );
 }
 
 .info h2{
-    font-size:30px;
+    font-size:29px;
     margin-bottom:8px;
 }
 
 .info p{
-    font-size:17px;
+    font-size:16px;
     line-height:1.4;
 }
 
@@ -256,11 +246,11 @@ body{
 
 .stamp{
     position:absolute;
-    top:45px;
-    padding:10px 20px;
+    top:42px;
+    padding:8px 18px;
     border:4px solid;
     border-radius:12px;
-    font-size:38px;
+    font-size:34px;
     font-weight:700;
     opacity:0;
     z-index:20;
@@ -282,32 +272,33 @@ body{
 
 .popup{
     position:absolute;
-    top:100px;
+    top:82px;
     left:50%;
     transform:translateX(-50%);
     background:black;
     color:white;
-    padding:14px 20px;
-    border-radius:18px;
-    font-size:15px;
+    padding:13px 18px;
+    border-radius:16px;
+    font-size:14px;
     opacity:0;
     transition:0.3s;
     z-index:100;
-    max-width:85%;
+    max-width:82%;
     text-align:center;
 }
 
-/* BOTTOM NAV */
+/* BOTTOM */
 
 .bottom{
     position:absolute;
     bottom:0;
     width:100%;
-    height:82px;
+    height:73px;
     background:white;
     display:flex;
     justify-content:space-around;
     align-items:center;
+    padding-bottom:4px;
 
     box-shadow:0 -4px 14px rgba(0,0,0,0.06);
 }
@@ -316,102 +307,83 @@ body{
     display:flex;
     flex-direction:column;
     align-items:center;
-    gap:3px;
+    gap:2px;
     color:#8a8a8a;
-    font-size:12px;
+    font-size:10px;
     cursor:pointer;
     transition:0.2s;
 }
 
 .nav span{
-    font-size:26px;
+    font-size:24px;
 }
 
 .nav:active{
     transform:scale(0.9);
 }
 
-/* END SCREEN */
+/* END */
 
 .end-card{
-    width:88%;
-    height:64vh;
+    width:86%;
+    height:56vh;
     background:linear-gradient(180deg,#ff5864,#ff2d7a);
-    border-radius:34px;
+    border-radius:32px;
     color:white;
     display:flex;
     flex-direction:column;
     justify-content:center;
     align-items:center;
     text-align:center;
-    padding:30px;
+    padding:28px;
 
     box-shadow:0 16px 40px rgba(0,0,0,0.22);
 }
 
 .end-small{
     letter-spacing:4px;
-    font-size:12px;
+    font-size:11px;
     opacity:0.7;
     margin-bottom:14px;
 }
 
 .end-card h1{
-    font-size:46px;
-    margin-bottom:18px;
+    font-size:42px;
+    margin-bottom:16px;
     font-weight:700;
 }
 
 .end-card p{
-    font-size:22px;
+    font-size:19px;
     line-height:1.6;
     opacity:0.96;
 }
 
 .end-options{
-    margin-top:36px;
+    margin-top:30px;
     width:100%;
     display:flex;
     flex-direction:column;
-    gap:14px;
+    gap:12px;
 }
 
 .end-option{
     background:rgba(255,255,255,0.18);
     backdrop-filter:blur(10px);
-    padding:18px;
-    border-radius:20px;
-    font-size:18px;
-    transition:0.2s;
-}
-
-.end-option:active{
-    transform:scale(0.96);
+    padding:16px;
+    border-radius:18px;
+    font-size:17px;
 }
 
 /* SHAKE */
 
 @keyframes shake{
 
-    0%{
-        transform:translateX(0px);
-    }
-
-    25%{
-        transform:translateX(-5px);
-    }
-
-    50%{
-        transform:translateX(5px);
-    }
-
-    75%{
-        transform:translateX(-5px);
-    }
-
-    100%{
-        transform:translateX(0px);
-    }
+    0%{ transform:translateX(0px); }
+    25%{ transform:translateX(-5px); }
+    50%{ transform:translateX(5px); }
+    75%{ transform:translateX(-5px); }
+    100%{ transform:translateX(0px); }
 
 }
 
@@ -423,15 +395,11 @@ body{
 
 <div class="phone">
 
-<!-- PASSWORD SCREEN -->
+<!-- PASSWORD -->
 
 <div id="passwordScreen" class="screen">
 
     <div class="lock">🔒</div>
-
-    <h1>Private Access</h1>
-
-    <p>enter password to continue</p>
 
     <div class="password-box">
 
@@ -460,20 +428,20 @@ body{
 
     <h1>tinder</h1>
 
-    <div class="intro-text">
+    <div class="intro-text" id="introText">
         everyone hold your heart<br>
         cause it's gonna get shattered....
     </div>
 
-    <p>tap to continue</p>
+    <div class="tap" id="tapText">
+        tap to continue
+    </div>
 
 </div>
 
-<!-- SCREEN 3 -->
+<!-- MAIN -->
 
 <div id="screen3" class="screen">
-
-    <!-- TOP -->
 
     <div class="top">
 
@@ -485,15 +453,9 @@ body{
 
     </div>
 
-    <!-- POPUP -->
-
     <div class="popup" id="popup"></div>
 
-    <!-- CARD AREA -->
-
     <div class="card-area" id="cardArea">
-
-        <!-- 7 -->
 
         <div class="card">
 
@@ -512,8 +474,6 @@ body{
 
         </div>
 
-        <!-- 6 -->
-
         <div class="card">
 
             <img src="t6.png">
@@ -531,8 +491,6 @@ body{
 
         </div>
 
-        <!-- 5 -->
-
         <div class="card">
 
             <img src="t5.png">
@@ -548,8 +506,6 @@ body{
             </div>
 
         </div>
-
-        <!-- 4 -->
 
         <div class="card">
 
@@ -568,8 +524,6 @@ body{
 
         </div>
 
-        <!-- 3 -->
-
         <div class="card">
 
             <img src="t3.png">
@@ -587,8 +541,6 @@ body{
 
         </div>
 
-        <!-- 2 -->
-
         <div class="card">
 
             <img src="t2.png">
@@ -604,8 +556,6 @@ body{
             </div>
 
         </div>
-
-        <!-- 1 -->
 
         <div class="card">
 
@@ -673,7 +623,7 @@ function checkPassword(){
     const input = document.getElementById("passwordInput").value;
     const error = document.getElementById("error");
 
-    if(input.toLowerCase() === "single"){
+    if(input.toLowerCase() === "delulu"){
 
         document.getElementById("passwordScreen").style.display = "none";
         document.getElementById("screen1").style.display = "flex";
@@ -694,15 +644,33 @@ function checkPassword(){
 
 }
 
-/* SCREENS */
+/* INTRO FLOW */
 
 const screen1 = document.getElementById("screen1");
 const screen3 = document.getElementById("screen3");
 
+const introText = document.getElementById("introText");
+const tapText = document.getElementById("tapText");
+
+let introStage = 0;
+
 screen1.addEventListener("click",()=>{
 
-    screen1.style.display="none";
-    screen3.style.display="block";
+    if(introStage === 0){
+
+        introText.style.opacity = "1";
+        tapText.style.opacity = "1";
+
+        introStage++;
+
+    }
+
+    else{
+
+        screen1.style.display="none";
+        screen3.style.display="block";
+
+    }
 
 });
 
@@ -724,8 +692,6 @@ function showPopup(text){
 
 }
 
-/* RANDOM POPUP */
-
 function randomPopup(arr){
 
     const text = arr[Math.floor(Math.random() * arr.length)];
@@ -734,104 +700,67 @@ function randomPopup(arr){
 
 }
 
-/* DISCOVER */
+/* NAV BUTTONS */
 
 function discoverMode(){
 
-    const lines = [
-
+    randomPopup([
         "new red flags discovered",
-        "emotionally unavailable detected",
-        "warning: owns a podcast",
-        "future situationship nearby"
-
-    ];
-
-    randomPopup(lines);
+        "future situationship nearby",
+        "emotionally unavailable detected"
+    ]);
 
 }
 
-/* DELUSION */
-
 function delusionMode(){
-
-    const lines = [
-
-        "you can fix him",
-        "he WILL text back",
-        "this one feels different",
-        "trusting potential instead of reality"
-
-    ];
 
     document.body.style.filter = "saturate(1.4)";
 
     setTimeout(()=>{
-
         document.body.style.filter = "none";
-
     },1200);
 
-    randomPopup(lines);
+    randomPopup([
+        "you can fix him",
+        "he WILL text back",
+        "this one feels different"
+    ]);
 
 }
-
-/* FATE */
 
 function fateMode(){
 
-    const lines = [
-
-        "your soulmate is ignoring you rn",
+    randomPopup([
         "98% chance of heartbreak",
-        "cosmic bad decisions aligned",
-        "destiny said try again later"
-
-    ];
-
-    randomPopup(lines);
+        "destiny said try again later",
+        "your soulmate is ignoring you rn"
+    ]);
 
 }
-
-/* THERAPY */
 
 function therapyMode(){
 
-    const lines = [
-
+    randomPopup([
         "interesting pattern.",
-        "why do you like unavailable people?",
         "healing is optional apparently",
         "maybe take a break"
-
-    ];
-
-    randomPopup(lines);
+    ]);
 
 }
 
-/* DAMAGE */
-
 function damageMode(){
-
-    const lines = [
-
-        "emotional damage: 84%",
-        "attachment issues upgraded",
-        "self respect loading...",
-        "dry texting survivor"
-
-    ];
 
     document.body.style.animation = "shake 0.4s";
 
     setTimeout(()=>{
-
         document.body.style.animation = "none";
-
     },400);
 
-    randomPopup(lines);
+    randomPopup([
+        "emotional damage: 84%",
+        "attachment issues upgraded",
+        "self respect loading..."
+    ]);
 
 }
 
@@ -843,7 +772,7 @@ function initCards(){
 
     const cards = document.querySelectorAll(".card");
 
-    if(cards.length === 0){
+    if(cards.length <= 1){
 
         cardArea.innerHTML = `
 
@@ -900,65 +829,42 @@ function initCards(){
                 rotate(${rotate}deg)
             `;
 
-            const like = card.querySelector(".like");
-            const nope = card.querySelector(".nope");
-
-            if(like && nope){
-
-                if(x > 0){
-
-                    like.style.opacity = x / 120;
-                    nope.style.opacity = 0;
-
-                }
-
-                else{
-
-                    nope.style.opacity = Math.abs(x) / 120;
-                    like.style.opacity = 0;
-
-                }
-            }
-
         });
 
         hammer.on("panend",()=>{
 
             card.style.transition = "0.45s ease";
 
-            if(x > 120){
+            if(Math.abs(x) > 100){
 
-                card.style.transform = `
-                    translate(${window.innerWidth + 300}px,-180px)
-                    rotate(30deg)
-                `;
+                if(x > 0){
 
-                showPopup("future heartbreak unlocked");
+                    card.style.transform = `
+                        translate(${window.innerWidth + 300}px,-180px)
+                        rotate(30deg)
+                    `;
 
-                setTimeout(()=>{
+                    showPopup("future heartbreak unlocked");
 
-                    card.remove();
-                    initCards();
+                }
 
-                },400);
+                else{
 
-            }
+                    card.style.transform = `
+                        translate(-${window.innerWidth + 300}px,-180px)
+                        rotate(-30deg)
+                    `;
 
-            else if(x < -120){
+                    showPopup("avoided emotional damage");
 
-                card.style.transform = `
-                    translate(-${window.innerWidth + 300}px,-180px)
-                    rotate(-30deg)
-                `;
-
-                showPopup("avoided emotional damage");
+                }
 
                 setTimeout(()=>{
 
                     card.remove();
                     initCards();
 
-                },400);
+                },350);
 
             }
 
@@ -968,6 +874,7 @@ function initCards(){
                     translate(0px,0px)
                     rotate(0deg)
                 `;
+
             }
 
         });
