@@ -34,20 +34,6 @@ body{
     overflow:hidden;
 }
 
-/* DYNAMIC ISLAND */
-
-.island{
-    position:absolute;
-    top:14px;
-    left:50%;
-    transform:translateX(-50%);
-    width:120px;
-    height:34px;
-    background:black;
-    border-radius:40px;
-    z-index:100;
-}
-
 /* SCREENS */
 
 .screen{
@@ -130,12 +116,14 @@ body{
     color:white;
     z-index:30;
     cursor:pointer;
+    text-align:center;
+    padding:30px;
 }
 
 .tinder-logo{
     font-size:90px;
     margin-bottom:12px;
-    animation:float 2s ease-in-out infinite;
+    filter:brightness(0) invert(1);
 }
 
 #screen1 h1{
@@ -143,60 +131,20 @@ body{
     font-weight:700;
 }
 
+.intro-text{
+    margin-top:20px;
+    text-align:center;
+    font-size:22px;
+    line-height:1.5;
+    opacity:0.92;
+    width:80%;
+    max-width:340px;
+}
+
 #screen1 p{
-    margin-top:10px;
+    margin-top:24px;
     opacity:0.8;
     font-size:18px;
-}
-
-@keyframes float{
-
-    0%{
-        transform:translateY(0px);
-    }
-
-    50%{
-        transform:translateY(-8px);
-    }
-
-    100%{
-        transform:translateY(0px);
-    }
-
-}
-
-/* INTRO */
-
-#screen2{
-    background:black;
-    color:white;
-    display:none;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    padding:30px;
-    z-index:20;
-    cursor:pointer;
-}
-
-#screen2 h1{
-    font-size:36px;
-    line-height:1.4;
-    animation:fadeUp 1s ease;
-}
-
-@keyframes fadeUp{
-
-    from{
-        opacity:0;
-        transform:translateY(30px);
-    }
-
-    to{
-        opacity:1;
-        transform:translateY(0px);
-    }
-
 }
 
 /* MAIN APP */
@@ -208,7 +156,7 @@ body{
 /* TOP BAR */
 
 .top{
-    height:95px;
+    height:85px;
     display:flex;
     justify-content:space-between;
     align-items:center;
@@ -232,7 +180,7 @@ body{
 
 .card-area{
     width:100%;
-    height:calc(100vh - 180px);
+    height:calc(100vh - 170px);
     position:relative;
     display:flex;
     justify-content:center;
@@ -242,9 +190,9 @@ body{
 /* CARDS */
 
 .card{
-    width:88%;
-    max-width:420px;
-    height:72vh;
+    width:86%;
+    max-width:390px;
+    height:66vh;
     border-radius:34px;
     overflow:hidden;
     position:absolute;
@@ -285,23 +233,23 @@ body{
     position:absolute;
     bottom:0;
     width:100%;
-    padding:28px;
+    padding:24px;
     color:white;
 
     background:linear-gradient(
         transparent,
-        rgba(0,0,0,0.92)
+        rgba(0,0,0,0.94)
     );
 }
 
 .info h2{
-    font-size:36px;
+    font-size:30px;
     margin-bottom:8px;
 }
 
 .info p{
-    font-size:20px;
-    line-height:1.35;
+    font-size:17px;
+    line-height:1.4;
 }
 
 /* LIKE / NOPE */
@@ -312,7 +260,7 @@ body{
     padding:10px 20px;
     border:4px solid;
     border-radius:12px;
-    font-size:42px;
+    font-size:38px;
     font-weight:700;
     opacity:0;
     z-index:20;
@@ -334,17 +282,19 @@ body{
 
 .popup{
     position:absolute;
-    top:120px;
+    top:100px;
     left:50%;
     transform:translateX(-50%);
     background:black;
     color:white;
     padding:14px 20px;
     border-radius:18px;
-    font-size:16px;
+    font-size:15px;
     opacity:0;
     transition:0.3s;
     z-index:100;
+    max-width:85%;
+    text-align:center;
 }
 
 /* BOTTOM NAV */
@@ -353,7 +303,7 @@ body{
     position:absolute;
     bottom:0;
     width:100%;
-    height:85px;
+    height:82px;
     background:white;
     display:flex;
     justify-content:space-around;
@@ -369,17 +319,23 @@ body{
     gap:3px;
     color:#8a8a8a;
     font-size:12px;
+    cursor:pointer;
+    transition:0.2s;
 }
 
 .nav span{
-    font-size:28px;
+    font-size:26px;
+}
+
+.nav:active{
+    transform:scale(0.9);
 }
 
 /* END SCREEN */
 
 .end-card{
     width:88%;
-    height:70vh;
+    height:64vh;
     background:linear-gradient(180deg,#ff5864,#ff2d7a);
     border-radius:34px;
     color:white;
@@ -393,24 +349,70 @@ body{
     box-shadow:0 16px 40px rgba(0,0,0,0.22);
 }
 
+.end-small{
+    letter-spacing:4px;
+    font-size:12px;
+    opacity:0.7;
+    margin-bottom:14px;
+}
+
 .end-card h1{
-    font-size:44px;
-    margin-bottom:20px;
+    font-size:46px;
+    margin-bottom:18px;
+    font-weight:700;
 }
 
 .end-card p{
     font-size:22px;
-    line-height:1.5;
+    line-height:1.6;
+    opacity:0.96;
 }
 
-.end-btn{
-    margin-top:30px;
-    background:white;
-    color:#ff2d7a;
-    padding:16px 28px;
-    border-radius:40px;
+.end-options{
+    margin-top:36px;
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+}
+
+.end-option{
+    background:rgba(255,255,255,0.18);
+    backdrop-filter:blur(10px);
+    padding:18px;
+    border-radius:20px;
     font-size:18px;
-    font-weight:700;
+    transition:0.2s;
+}
+
+.end-option:active{
+    transform:scale(0.96);
+}
+
+/* SHAKE */
+
+@keyframes shake{
+
+    0%{
+        transform:translateX(0px);
+    }
+
+    25%{
+        transform:translateX(-5px);
+    }
+
+    50%{
+        transform:translateX(5px);
+    }
+
+    75%{
+        transform:translateX(-5px);
+    }
+
+    100%{
+        transform:translateX(0px);
+    }
+
 }
 
 </style>
@@ -420,8 +422,6 @@ body{
 <body>
 
 <div class="phone">
-
-<div class="island"></div>
 
 <!-- PASSWORD SCREEN -->
 
@@ -460,18 +460,12 @@ body{
 
     <h1>tinder</h1>
 
-    <p>tap to continue</p>
-
-</div>
-
-<!-- SCREEN 2 -->
-
-<div id="screen2" class="screen">
-
-    <h1>
+    <div class="intro-text">
         everyone hold your heart<br>
         cause it's gonna get shattered....
-    </h1>
+    </div>
+
+    <p>tap to continue</p>
 
 </div>
 
@@ -639,27 +633,27 @@ body{
 
     <div class="bottom">
 
-        <div class="nav">
+        <div class="nav" onclick="discoverMode()">
             <span>🔥</span>
             <small>discover</small>
         </div>
 
-        <div class="nav">
+        <div class="nav" onclick="delusionMode()">
             <span>🧩</span>
             <small>delusion</small>
         </div>
 
-        <div class="nav">
+        <div class="nav" onclick="fateMode()">
             <span>✨</span>
             <small>fate</small>
         </div>
 
-        <div class="nav">
+        <div class="nav" onclick="therapyMode()">
             <span>💬</span>
             <small>therapy</small>
         </div>
 
-        <div class="nav">
+        <div class="nav" onclick="damageMode()">
             <span>👤</span>
             <small>damage</small>
         </div>
@@ -703,19 +697,11 @@ function checkPassword(){
 /* SCREENS */
 
 const screen1 = document.getElementById("screen1");
-const screen2 = document.getElementById("screen2");
 const screen3 = document.getElementById("screen3");
 
 screen1.addEventListener("click",()=>{
 
     screen1.style.display="none";
-    screen2.style.display="flex";
-
-});
-
-screen2.addEventListener("click",()=>{
-
-    screen2.style.display="none";
     screen3.style.display="block";
 
 });
@@ -734,7 +720,118 @@ function showPopup(text){
 
         popup.style.opacity = "0";
 
-    },1600);
+    },1700);
+
+}
+
+/* RANDOM POPUP */
+
+function randomPopup(arr){
+
+    const text = arr[Math.floor(Math.random() * arr.length)];
+
+    showPopup(text);
+
+}
+
+/* DISCOVER */
+
+function discoverMode(){
+
+    const lines = [
+
+        "new red flags discovered",
+        "emotionally unavailable detected",
+        "warning: owns a podcast",
+        "future situationship nearby"
+
+    ];
+
+    randomPopup(lines);
+
+}
+
+/* DELUSION */
+
+function delusionMode(){
+
+    const lines = [
+
+        "you can fix him",
+        "he WILL text back",
+        "this one feels different",
+        "trusting potential instead of reality"
+
+    ];
+
+    document.body.style.filter = "saturate(1.4)";
+
+    setTimeout(()=>{
+
+        document.body.style.filter = "none";
+
+    },1200);
+
+    randomPopup(lines);
+
+}
+
+/* FATE */
+
+function fateMode(){
+
+    const lines = [
+
+        "your soulmate is ignoring you rn",
+        "98% chance of heartbreak",
+        "cosmic bad decisions aligned",
+        "destiny said try again later"
+
+    ];
+
+    randomPopup(lines);
+
+}
+
+/* THERAPY */
+
+function therapyMode(){
+
+    const lines = [
+
+        "interesting pattern.",
+        "why do you like unavailable people?",
+        "healing is optional apparently",
+        "maybe take a break"
+
+    ];
+
+    randomPopup(lines);
+
+}
+
+/* DAMAGE */
+
+function damageMode(){
+
+    const lines = [
+
+        "emotional damage: 84%",
+        "attachment issues upgraded",
+        "self respect loading...",
+        "dry texting survivor"
+
+    ];
+
+    document.body.style.animation = "shake 0.4s";
+
+    setTimeout(()=>{
+
+        document.body.style.animation = "none";
+
+    },400);
+
+    randomPopup(lines);
 
 }
 
@@ -752,20 +849,27 @@ function initCards(){
 
         <div class="end-card">
 
-            <h1>🎉 Congratulations 🎉</h1>
+            <div class="end-small">
+                THE END
+            </div>
+
+            <h1>Congratulations ✨</h1>
 
             <p>
-                you have exhausted all available men in your area.<br><br>
-
-                options unlocked:<br>
-                heal<br>
-                go outside<br>
-                text your ex<br>
-                restart cycle
+                you've officially exhausted<br>
+                all available men in your area.
             </p>
 
-            <div class="end-btn">
-                continue suffering
+            <div class="end-options">
+
+                <div class="end-option">
+                    continue suffering
+                </div>
+
+                <div class="end-option">
+                    download linkedin instead
+                </div>
+
             </div>
 
         </div>
