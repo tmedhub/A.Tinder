@@ -4,7 +4,10 @@
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
 <title>Tinder Chaos</title>
 
@@ -19,7 +22,10 @@
     font-family:-apple-system,BlinkMacSystemFont,sans-serif;
 }
 
+html,
 body{
+    width:100%;
+    height:100%;
     overflow:hidden;
     background:black;
 }
@@ -171,12 +177,17 @@ body{
 
 .card-area{
     width:100%;
-    height:calc(100vh - 145px);
+    height:calc(
+        100vh - 72px - 90px - env(safe-area-inset-bottom)
+    );
+
     position:relative;
+
     display:flex;
     justify-content:center;
     align-items:center;
-    padding-bottom:10px;
+
+    padding-bottom:20px;
 }
 
 /* CARDS */
@@ -287,20 +298,31 @@ body{
     text-align:center;
 }
 
-/* BOTTOM */
+/* BOTTOM NAV */
 
 .bottom{
     position:absolute;
     bottom:0;
+
     width:100%;
-    height:73px;
+
+    min-height:73px;
+
     background:white;
+
     display:flex;
     justify-content:space-around;
     align-items:center;
-    padding-bottom:4px;
+
+    padding-top:6px;
+
+    padding-bottom:calc(
+        8px + env(safe-area-inset-bottom)
+    );
 
     box-shadow:0 -4px 14px rgba(0,0,0,0.06);
+
+    z-index:100;
 }
 
 .nav{
@@ -327,17 +349,28 @@ body{
 .end-card{
     width:86%;
     height:56vh;
-    background:linear-gradient(180deg,#ff5864,#ff2d7a);
+
+    background:linear-gradient(
+        180deg,
+        #ff5864,
+        #ff2d7a
+    );
+
     border-radius:32px;
+
     color:white;
+
     display:flex;
     flex-direction:column;
     justify-content:center;
     align-items:center;
+
     text-align:center;
+
     padding:28px;
 
-    box-shadow:0 16px 40px rgba(0,0,0,0.22);
+    box-shadow:
+    0 16px 40px rgba(0,0,0,0.22);
 }
 
 .end-small{
@@ -362,6 +395,7 @@ body{
 .end-options{
     margin-top:30px;
     width:100%;
+
     display:flex;
     flex-direction:column;
     gap:12px;
@@ -369,9 +403,13 @@ body{
 
 .end-option{
     background:rgba(255,255,255,0.18);
+
     backdrop-filter:blur(10px);
+
     padding:16px;
+
     border-radius:18px;
+
     font-size:17px;
 }
 
@@ -403,9 +441,9 @@ body{
 
     <div class="password-box">
 
-        <input 
-        type="password" 
-        id="passwordInput" 
+        <input
+        type="password"
+        id="passwordInput"
         placeholder="password">
 
         <button onclick="checkPassword()">
@@ -457,125 +495,7 @@ body{
 
     <div class="card-area" id="cardArea">
 
-        <div class="card">
-
-            <img src="t7.png">
-
-            <div class="info">
-
-                <h2>Aryaman</h2>
-
-                <p>
-                    Favorite child.<br>
-                    Red flag hidden behind good communication skills.
-                </p>
-
-            </div>
-
-        </div>
-
-        <div class="card">
-
-            <img src="t6.png">
-
-            <div class="info">
-
-                <h2>Ronaldo</h2>
-
-                <p>
-                    but willing to get messi<br>
-                    triple texts after 11:47pm
-                </p>
-
-            </div>
-
-        </div>
-
-        <div class="card">
-
-            <img src="t5.png">
-
-            <div class="info">
-
-                <h2>Shrayans, 22</h2>
-
-                <p>
-                    will send playlists instead of commitment
-                </p>
-
-            </div>
-
-        </div>
-
-        <div class="card">
-
-            <img src="t4.png">
-
-            <div class="info">
-
-                <h2>Shivam, 20</h2>
-
-                <p>
-                    says "i'm different"<br>
-                    unfortunately correct
-                </p>
-
-            </div>
-
-        </div>
-
-        <div class="card">
-
-            <img src="t3.png">
-
-            <div class="info">
-
-                <h2>Man Child, 21</h2>
-
-                <p>
-                    can cook maggi<br>
-                    thinks that's husband material
-                </p>
-
-            </div>
-
-        </div>
-
-        <div class="card">
-
-            <img src="t2.png">
-
-            <div class="info">
-
-                <h2>Kohli! Kohli! Kohli!</h2>
-
-                <p>
-                    the catch you'd never drop
-                </p>
-
-            </div>
-
-        </div>
-
-        <div class="card">
-
-            <div class="stamp like">LIKE</div>
-            <div class="stamp nope">NOPE</div>
-
-            <img src="t1.png">
-
-            <div class="info">
-
-                <h2>Sachin, 16</h2>
-
-                <p>
-                    age is just a number<br>
-                    Professional Simp
-                </p>
-
-            </div>
-
-        </div>
+        <!-- YOUR CARDS HERE -->
 
     </div>
 
@@ -583,27 +503,27 @@ body{
 
     <div class="bottom">
 
-        <div class="nav" onclick="discoverMode()">
+        <div class="nav">
             <span>🔥</span>
             <small>discover</small>
         </div>
 
-        <div class="nav" onclick="delusionMode()">
+        <div class="nav">
             <span>🧩</span>
             <small>delusion</small>
         </div>
 
-        <div class="nav" onclick="fateMode()">
+        <div class="nav">
             <span>✨</span>
             <small>fate</small>
         </div>
 
-        <div class="nav" onclick="therapyMode()">
+        <div class="nav">
             <span>💬</span>
             <small>therapy</small>
         </div>
 
-        <div class="nav" onclick="damageMode()">
+        <div class="nav">
             <span>👤</span>
             <small>damage</small>
         </div>
@@ -616,17 +536,27 @@ body{
 
 <script>
 
-/* PASSWORD */
-
 function checkPassword(){
 
-    const input = document.getElementById("passwordInput").value;
-    const error = document.getElementById("error");
+    const input =
+    document.getElementById(
+        "passwordInput"
+    ).value;
+
+    const error =
+    document.getElementById(
+        "error"
+    );
 
     if(input.toLowerCase() === "delulu"){
 
-        document.getElementById("passwordScreen").style.display = "none";
-        document.getElementById("screen1").style.display = "flex";
+        document.getElementById(
+            "passwordScreen"
+        ).style.display = "none";
+
+        document.getElementById(
+            "screen1"
+        ).style.display = "flex";
 
     }
 
@@ -644,13 +574,17 @@ function checkPassword(){
 
 }
 
-/* INTRO FLOW */
+const screen1 =
+document.getElementById("screen1");
 
-const screen1 = document.getElementById("screen1");
-const screen3 = document.getElementById("screen3");
+const screen3 =
+document.getElementById("screen3");
 
-const introText = document.getElementById("introText");
-const tapText = document.getElementById("tapText");
+const introText =
+document.getElementById("introText");
+
+const tapText =
+document.getElementById("tapText");
 
 let introStage = 0;
 
@@ -673,217 +607,6 @@ screen1.addEventListener("click",()=>{
     }
 
 });
-
-/* POPUP */
-
-function showPopup(text){
-
-    const popup = document.getElementById("popup");
-
-    popup.innerText = text;
-
-    popup.style.opacity = "1";
-
-    setTimeout(()=>{
-
-        popup.style.opacity = "0";
-
-    },1700);
-
-}
-
-function randomPopup(arr){
-
-    const text = arr[Math.floor(Math.random() * arr.length)];
-
-    showPopup(text);
-
-}
-
-/* NAV BUTTONS */
-
-function discoverMode(){
-
-    randomPopup([
-        "new red flags discovered",
-        "future situationship nearby",
-        "emotionally unavailable detected"
-    ]);
-
-}
-
-function delusionMode(){
-
-    document.body.style.filter = "saturate(1.4)";
-
-    setTimeout(()=>{
-        document.body.style.filter = "none";
-    },1200);
-
-    randomPopup([
-        "you can fix him",
-        "he WILL text back",
-        "this one feels different"
-    ]);
-
-}
-
-function fateMode(){
-
-    randomPopup([
-        "98% chance of heartbreak",
-        "destiny said try again later",
-        "your soulmate is ignoring you rn"
-    ]);
-
-}
-
-function therapyMode(){
-
-    randomPopup([
-        "interesting pattern.",
-        "healing is optional apparently",
-        "maybe take a break"
-    ]);
-
-}
-
-function damageMode(){
-
-    document.body.style.animation = "shake 0.4s";
-
-    setTimeout(()=>{
-        document.body.style.animation = "none";
-    },400);
-
-    randomPopup([
-        "emotional damage: 84%",
-        "attachment issues upgraded",
-        "self respect loading..."
-    ]);
-
-}
-
-/* SWIPE */
-
-const cardArea = document.getElementById("cardArea");
-
-function initCards(){
-
-    const cards = document.querySelectorAll(".card");
-
-    if(cards.length <= 1){
-
-        cardArea.innerHTML = `
-
-        <div class="end-card">
-
-            <div class="end-small">
-                THE END
-            </div>
-
-            <h1>Congratulations ✨</h1>
-
-            <p>
-                you've officially exhausted<br>
-                all available men in your area.
-            </p>
-
-            <div class="end-options">
-
-                <div class="end-option">
-                    continue suffering
-                </div>
-
-                <div class="end-option">
-                    download linkedin instead
-                </div>
-
-            </div>
-
-        </div>
-
-        `;
-
-        return;
-    }
-
-    cards.forEach((card)=>{
-
-        const hammer = new Hammer(card);
-
-        let x = 0;
-        let y = 0;
-
-        hammer.on("pan",(e)=>{
-
-            x = e.deltaX;
-            y = e.deltaY;
-
-            const rotate = x * 0.05;
-
-            card.style.transition = "none";
-
-            card.style.transform = `
-                translate(${x}px, ${y - Math.abs(x)*0.12}px)
-                rotate(${rotate}deg)
-            `;
-
-        });
-
-        hammer.on("panend",()=>{
-
-            card.style.transition = "0.45s ease";
-
-            if(Math.abs(x) > 100){
-
-                if(x > 0){
-
-                    card.style.transform = `
-                        translate(${window.innerWidth + 300}px,-180px)
-                        rotate(30deg)
-                    `;
-
-                    showPopup("future heartbreak unlocked");
-
-                }
-
-                else{
-
-                    card.style.transform = `
-                        translate(-${window.innerWidth + 300}px,-180px)
-                        rotate(-30deg)
-                    `;
-
-                    showPopup("avoided emotional damage");
-
-                }
-
-                setTimeout(()=>{
-
-                    card.remove();
-                    initCards();
-
-                },350);
-
-            }
-
-            else{
-
-                card.style.transform = `
-                    translate(0px,0px)
-                    rotate(0deg)
-                `;
-
-            }
-
-        });
-
-    });
-
-}
-
-initCards();
 
 </script>
 
